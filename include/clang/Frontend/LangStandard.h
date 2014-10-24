@@ -29,7 +29,8 @@ enum LangFeatures {
   Digraphs = (1 << 8),
   GNUMode = (1 << 9),
   HexFloat = (1 << 10),
-  ImplicitInt = (1 << 11)
+  ImplicitInt = (1 << 11),
+  Sycl = (1 << 12)
 };
 
 }
@@ -90,6 +91,9 @@ public:
 
   /// hasImplicitInt - Language allows variables to be typed as int implicitly.
   bool hasImplicitInt() const { return Flags & frontend::ImplicitInt; }
+
+  // isSycl - Language is a Sycl standard.
+  bool isSycl() const { return Flags & frontend::Sycl; }
 
   static const LangStandard &getLangStandardForKind(Kind K);
   static const LangStandard *getLangStandardForName(StringRef Name);

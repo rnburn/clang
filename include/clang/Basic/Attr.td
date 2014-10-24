@@ -604,6 +604,12 @@ def OpenCLKernel : InheritableAttr {
   let Documentation = [Undocumented];
 }
 
+def SyclDevice : InheritableAttr {
+  let Spellings = [CXX11<"sycl", "device">];
+  let Subjects = SubjectList<[Function]>;
+  let Documentation = [Undocumented];
+}
+
 // This attribute is both a type attribute, and a declaration attribute (for
 // parameter variables).
 def OpenCLImageAccess : Attr {

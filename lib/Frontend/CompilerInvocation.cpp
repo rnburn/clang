@@ -1154,6 +1154,7 @@ void CompilerInvocation::setLangDefaults(LangOptions &Opts, InputKind IK,
   Opts.GNUInline = !Std.isC99();
   Opts.HexFloats = Std.hasHexFloats();
   Opts.ImplicitInt = Std.hasImplicitInt();
+  Opts.Sycl = Std.isSycl();
 
   // Set OpenCL Version.
   Opts.OpenCL = LangStd == LangStandard::lang_opencl || IK == IK_OpenCL;

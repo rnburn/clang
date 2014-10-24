@@ -1044,6 +1044,12 @@ static void handlePackedAttr(Sema &S, Decl *D, const AttributeList &Attr) {
     S.Diag(Attr.getLoc(), diag::warn_attribute_ignored) << Attr.getName();
 }
 
+static void handleSemaDeviceAttr(Sema &S, Decl *D, const AttributeList &Attr) {
+  D->addAttr(::new (S.Context) 
+             OpenCLKernelAttr(Attr.getRange(), S.Context,
+                              Attr.getAttributeSpellingListIndex()));
+}
+
 static bool checkIBOutletCommon(Sema &S, Decl *D, const AttributeList &Attr) {
   // The IBOutlet/IBOutletCollection attributes only apply to instance
   // variables or properties of Objective-C classes.  The outlet must also
@@ -4262,6 +4268,9 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
     break;
   case AttributeList::AT_Constructor:
     handleConstructorAttr(S, D, Attr);
+    break;
+  case AttributeList::AT_SyclDevice:
+    handleSemaDeviceAttr(S, D, Attr);
     break;
   case AttributeList::AT_CXX11NoReturn:
     handleSimpleAttribute<CXX11NoReturnAttr>(S, D, Attr);

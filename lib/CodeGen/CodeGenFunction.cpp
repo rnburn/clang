@@ -596,7 +596,7 @@ void CodeGenFunction::StartFunction(GlobalDecl GD,
       Fn->addFnAttr(llvm::Attribute::NoInline);
   }
 
-  if (getLangOpts().OpenCL) {
+  if (getLangOpts().OpenCL || getLangOpts().Sycl) {
     // Add metadata for a kernel function.
     if (const FunctionDecl *FD = dyn_cast_or_null<FunctionDecl>(D))
       EmitOpenCLKernelMetadata(FD, Fn);

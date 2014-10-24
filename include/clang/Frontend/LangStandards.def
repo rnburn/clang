@@ -121,6 +121,10 @@ LANGSTANDARD(gnucxx14, "gnu++14",
              "ISO C++ 2014 with amendments and GNU extensions",
              LineComment | CPlusPlus | CPlusPlus11 | CPlusPlus14 | Digraphs |
              GNUMode)
+LANGSTANDARD(sycl, "sycl",
+             "Working draft for Khronos Sycl 1.2",
+             LineComment | CPlusPlus | CPlusPlus11 | CPlusPlus14 | Digraphs | 
+             Sycl)
 
 LANGSTANDARD(cxx1z, "c++1z",
              "Working draft for ISO C++ 2017",
