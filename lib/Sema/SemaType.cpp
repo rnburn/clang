@@ -4848,10 +4848,6 @@ static void processTypeAttrs(TypeProcessingState &state, QualType &type,
               << attr.getName();
           continue;
         }
-      } else if (TAL != TAL_DeclChunk) {
-        // Otherwise, only consider type processing for a C++11 attribute if
-        // it's actually been applied to a type.
-        continue;
       }
     }
 

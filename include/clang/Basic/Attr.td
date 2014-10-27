@@ -632,7 +632,7 @@ def OpenCLPrivateAddressSpace : TypeAttr {
 }
 
 def OpenCLGlobalAddressSpace : TypeAttr {
-  let Spellings = [Keyword<"__global">, Keyword<"global">];
+  let Spellings = [Keyword<"__global">, Keyword<"global">, CXX11<"sycl", "global">];
   let Documentation = [Undocumented];
 }
 
